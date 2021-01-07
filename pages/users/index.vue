@@ -194,14 +194,14 @@ export default {
       handleCancel() {
         this.visible = false;
       },
-      async handleCreate(userInfo) {
+      async handleCreate() {
         const form  = this.$refs.formUserData.form;
         // console.log("ref", this.$refs);
         if(this.isFormEdit) {
-          userInfo.edit = true;
-          await userRef.child(userInfo.id).update(userInfo);
+          this.userInfo.edit = true;
+          await userRef.child(this.userInfo.id).update(this.userInfo);
         }else {
-          userRef.push(userInfo);
+          userRef.push(this.userInfo);
         }
         this.visible = false;
         // userRef.push(
